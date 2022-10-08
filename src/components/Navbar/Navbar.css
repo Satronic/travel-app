@@ -1,19 +1,83 @@
+.header{
+    background-color: azure;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    box-shadow: 1px 1px 3px darkblue;
+}
+
+.header-logo{
+    color:darkblue;
+    font-weight: 600;
+    font-size: 200%;
+    text-shadow: 1px 1px 3px white;
+    margin: 0;
+    padding: 0 0 0 5px;
+}
+
 .airline-navbar{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
 
-.airline-list{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: row;
-    width: 50%;
+.airline-item{
+    color: darkblue;
+    font-weight: 600;
+    padding: 10px 30px;
+    width: auto;
+    cursor: pointer;
+    list-style: none;
 }
 
-.airline-item{
-    padding: 1%;
-    margin: 0 20px;
-    width: auto;
+.airline-item:hover{
+    background-color: darkblue;
+    color: white;
+}
+
+#menu-icon{
+    display: none;
+}
+
+
+
+@media screen and (max-width: 920px) {
+    .airline-list{
+        display: none;
+    }
+
+    .header{
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    .airline-list-responsive{
+        position: absolute;
+        right: 0;
+        top: 0;
+        box-shadow: 1px 1px 3px darkblue, -1px 1px 3px darkblue;
+        margin-top: 45px;
+        padding: 0;
+    }
+
+    #menu-icon{
+        display: block;
+        padding: 4px;
+        cursor: pointer;
+        color: darkblue;
+    }
+}
+
+@media (min-width: 921px) {
+    .airline-list,
+    .airline-list-responsive{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        padding: 0;
+        margin: 0;
+        width: 40%;
+    }
 }
