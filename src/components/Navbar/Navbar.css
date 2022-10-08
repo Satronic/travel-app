@@ -1,0 +1,19 @@
+.airline-navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.airline-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 50%;
+}
+
+.airline-item{
+    padding: 1%;
+    margin: 0 20px;
+    width: auto;
+}
