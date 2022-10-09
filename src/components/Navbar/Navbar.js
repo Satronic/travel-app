@@ -1,5 +1,6 @@
 import './Navbar.css';
 import aerolines from '../../data/index.js';
+import logo from '../../assets/logo.png';
 import React, { useState } from 'react';
 
 function Navbar() {
@@ -26,17 +27,18 @@ function Navbar() {
 
     return (
         <header className="header">
-            <h1 className="header-logo">
+            {/* <h1 className="header-logo">
                 TravelFree
-            </h1>
+            </h1> */}
+            <img className="header-logo" src={logo} alt="logo" />
             <nav className="airline-navbar">
                 <ul className={responsive.list}>
                     {aerolines.map(aeroline => {
-                    return <li className="airline-item" key={aeroline.id}>{aeroline.name}</li>
+                        return <li className="airline-item" key={aeroline.id}>{aeroline.name}</li>
                     })}
                 </ul>
             </nav>
-            <i id="menu-icon" class="material-icons" onClick={seeResponsiveMenu}>
+            <i id="menu-icon" className="material-icons" onClick={seeResponsiveMenu}>
                 {responsive.button === 'close' ? 'menu' : 'close'}
             </i>
         </header>

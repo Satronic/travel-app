@@ -8,10 +8,11 @@
 }
 
 .header-logo{
-    color:darkblue;
+    /* color:darkblue;
     font-weight: 600;
     font-size: 200%;
-    text-shadow: 1px 1px 3px white;
+    text-shadow: 1px 1px 3px white; */
+    width: 120px;
     margin: 0;
     padding: 0 0 0 5px;
 }
@@ -23,7 +24,10 @@
 }
 
 .airline-item{
-    color: darkblue;
+    /* color: darkblue; */
+    color: orangered;
+    /* text-shadow: 0px 1px 1px red; */
+    font-size: 120%;
     font-weight: 600;
     padding: 10px 30px;
     width: auto;
@@ -32,7 +36,7 @@
 }
 
 .airline-item:hover{
-    background-color: darkblue;
+    background-color: #0099cc;
     color: white;
 }
 
@@ -53,6 +57,7 @@
     }
 
     .airline-list-responsive{
+        background-color: azure;
         position: absolute;
         right: 0;
         top: 0;
