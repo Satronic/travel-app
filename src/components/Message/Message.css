@@ -1,0 +1,40 @@
+.container-message-active {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-message-inactive {
+    display: none;
+}
+
+.message-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: azure;
+    border: 2px solid green;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px white, -1px -1px 6px white;
+    padding: 1%;
+    width: 400px;
+}
+
+.message-icon{
+    width: 32px
+}
+
+.message {
+    color: green;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}

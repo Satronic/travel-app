@@ -1,6 +1,7 @@
 import './Form.css';
 import React from 'react';
 import { useState } from 'react';
+import Message from '../Message/Message.js';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { suscribeToNewsletter } from '../../Redux/Actions/index.js';
 
@@ -10,6 +11,11 @@ function Form() {
     // const dispatch = useDispatch();
     // const message = useSelector(state => state.message.msg);
     // console.log(message);
+
+    const [stateMessage, setStateMessage] = useState({
+        visible: true,
+        message: 'Tu información fue enviada con éxito, estaremos en contacto contigo.'
+    });
 
     const [inputForm, setInputForm] = useState({
         name: '',
@@ -127,6 +133,18 @@ function Form() {
     function onSubmitForm(event){
         event.preventDefault();
         const inputs = document.getElementsByTagName('input');
+        
+        setStateMessage({
+            ...stateMessage,
+            visible: true
+        });
+
+        setTimeout(()=>{
+            setStateMessage({
+                ...stateMessage,
+                visible: false
+            });
+        }, 5000)
     
         for(let i = 0; i < inputs.length; i++) {
             inputs[i].value = '';
@@ -152,7 +170,11 @@ function Form() {
             state: false
         })
         
-        console.log(inputForm);
+       
+        setTimeout(()=>{
+            setStateMessage(false);
+        }, 5000)
+     
         // console.log(stateForm);
     }
 
@@ -162,6 +184,7 @@ function Form() {
 
     return (
         <section className="section-form">
+            <Message content={stateMessage.message} visible={stateMessage.visible}/>
             <h5 className="section-message">
                 Hola, bienvenido, sabemos que quieres viajar en x, por favor diligencia el siguiente formulario:
             </h5>

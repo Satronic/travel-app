@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: space-evenly;
     flex-direction: row;
-    box-shadow: 1px 1px 3px darkblue;
+    box-shadow: 1px 1px 3px green;
 }
 
 .header-logo{
@@ -12,7 +12,7 @@
     font-weight: 600;
     font-size: 200%;
     text-shadow: 1px 1px 3px white; */
-    width: 120px;
+    width: 220px;
     margin: 0;
     padding: 0 0 0 5px;
 }
@@ -36,7 +36,7 @@
 }
 
 .airline-item:hover{
-    background-color: #0099cc;
+    background-color: #cc6633;
     color: white;
 }
 

@@ -25,16 +25,24 @@ function Navbar() {
         }
     }
 
+    function selectAirline(event) {
+        const selectedAirline = event.target.id;
+        console.log(selectedAirline);
+    }
+
     return (
         <header className="header">
-            {/* <h1 className="header-logo">
-                TravelFree
-            </h1> */}
             <img className="header-logo" src={logo} alt="logo" />
             <nav className="airline-navbar">
                 <ul className={responsive.list}>
                     {aerolines.map(aeroline => {
-                        return <li className="airline-item" key={aeroline.id}>{aeroline.name}</li>
+                        return <li 
+                            id={aeroline.id} 
+                            className="airline-item" 
+                            key={aeroline.id} 
+                            onClick={selectAirline}
+                            >{aeroline.name}
+                        </li>
                     })}
                 </ul>
             </nav>
