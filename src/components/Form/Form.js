@@ -178,7 +178,7 @@ function Form() {
         <section className={Object.keys(selectedAirline).length > 0 ? "section-form" : "section-form-disabled"}>
             <Message content={stateMessage.message} visible={stateMessage.visible}/>
             <div className="section-message">
-                <p className="section-message-text">'Hola, bienvenido, sabemos que quieres viajar en: </p>
+                <p className="section-message-text">Hola, bienvenido, sabemos que quieres viajar en: </p>
                 <p className="section-message-text"><strong>{selectedAirline.name}</strong></p>
                 <p className="section-message-text">Por favor diligencia el siguiente formulario:</p>
             </div>
