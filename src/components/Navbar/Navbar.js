@@ -1,14 +1,24 @@
 import './Navbar.css';
-import aerolines from '../../data/index.js';
+// import aerolines from '../../data/index.js';
 import logo from '../../assets/logo.png';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector} from 'react-redux';
+import { getAirlines, getAirlineById } from '../../Redux/Actions/index.js';
 
 function Navbar() {
+    const listAirlines = useSelector(state => state.listAirlines);
+    const dispatch = useDispatch();
     
     const [responsive, setResponsive] = useState({
         list: 'airline-list',
         button: 'close'
-    })
+    });
+
+    useEffect(() => {
+        dispatch(getAirlines());
+    },[dispatch])
+
+
 
     function seeResponsiveMenu(){
         if(responsive.button === 'close'){
@@ -26,8 +36,9 @@ function Navbar() {
     }
 
     function selectAirline(event) {
-        const selectedAirline = event.target.id;
-        console.log(selectedAirline);
+        const airlineId = event.target.id;
+        dispatch(getAirlineById(airlineId));
+        // alert(airlineId)
     }
 
     return (
@@ -35,7 +46,7 @@ function Navbar() {
             <img className="header-logo" src={logo} alt="logo" />
             <nav className="airline-navbar">
                 <ul className={responsive.list}>
-                    {aerolines.map(aeroline => {
+                    {listAirlines.map(aeroline => {
                         return <li 
                             id={aeroline.id} 
                             className="airline-item" 

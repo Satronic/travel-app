@@ -16,6 +16,10 @@
     box-shadow: 1px 1px 3px rgba(255, 69, 0.5), -1px -1px 3px orangered;
 }
 
+.section-form-disabled {
+    display: none;
+}
+
 .section-message{
     background-color: var(--bg-color-dark);
     color: var(--txt-color);
@@ -25,6 +29,18 @@
     text-align: center;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+}
+
+.section-message-text{
+    font-size: 120%;
+    padding: 0;
+    margin: 0;
+}
+
+strong{
+    font-size: 150%;
+    padding: 0;
+    margin: 0;
 }
 
 .form{

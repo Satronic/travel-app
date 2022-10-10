@@ -2,18 +2,18 @@ import './Form.css';
 import React from 'react';
 import { useState } from 'react';
 import Message from '../Message/Message.js';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { suscribeToNewsletter } from '../../Redux/Actions/index.js';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAirlineById } from '../../Redux/Actions/index';
+
 
 
 function Form() {
 
-    // const dispatch = useDispatch();
-    // const message = useSelector(state => state.message.msg);
-    // console.log(message);
+    const selectedAirline = useSelector(state => state.selectedAirline);
+    const dispatch = useDispatch();
 
     const [stateMessage, setStateMessage] = useState({
-        visible: true,
+        visible: false,
         message: 'Tu información fue enviada con éxito, estaremos en contacto contigo.'
     });
 
@@ -134,17 +134,12 @@ function Form() {
         event.preventDefault();
         const inputs = document.getElementsByTagName('input');
         
+        console.log(inputForm);
+
         setStateMessage({
             ...stateMessage,
             visible: true
         });
-
-        setTimeout(()=>{
-            setStateMessage({
-                ...stateMessage,
-                visible: false
-            });
-        }, 5000)
     
         for(let i = 0; i < inputs.length; i++) {
             inputs[i].value = '';
@@ -169,25 +164,24 @@ function Form() {
             },
             state: false
         })
-        
-       
+
         setTimeout(()=>{
-            setStateMessage(false);
+            setStateMessage({
+                ...stateMessage,
+                visible: false
+            });
+            dispatch(getAirlineById(0));
         }, 5000)
-     
-        // console.log(stateForm);
     }
 
-    // if(message){
-    //     return <p className="success-message">{message}</p>;
-    // }
-
     return (
-        <section className="section-form">
+        <section className={Object.keys(selectedAirline).length > 0 ? "section-form" : "section-form-disabled"}>
             <Message content={stateMessage.message} visible={stateMessage.visible}/>
-            <h5 className="section-message">
-                Hola, bienvenido, sabemos que quieres viajar en x, por favor diligencia el siguiente formulario:
-            </h5>
+            <div className="section-message">
+                <p className="section-message-text">'Hola, bienvenido, sabemos que quieres viajar en: </p>
+                <p className="section-message-text"><strong>{selectedAirline.name}</strong></p>
+                <p className="section-message-text">Por favor diligencia el siguiente formulario:</p>
+            </div>
             <form className="form" onSubmit={onSubmitForm} onKeyUp={evalueForm}>
                 <fieldset className={stateForm.name.state}>
                     <legend>{stateForm.name.message}</legend>
