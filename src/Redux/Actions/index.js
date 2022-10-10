@@ -12,6 +12,7 @@ export const getAirlines = () => {
 };
 
 export const getAirlineById = (airlineId) => {
+    console.log('airlineId in actions', airlineId)
     return {
         type: GET_AIRLINE_BY_ID,
         payload: airlineId

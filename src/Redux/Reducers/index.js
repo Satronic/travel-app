@@ -18,9 +18,12 @@ const rootReducer = (state = initialState, action) => {
 
         case GET_AIRLINE_BY_ID:
             const airlineId = action.payload;
+            console.log('airlineId in reducers', airlineId)
             let airlineFounded = state.listAirlines.find(airline => {
-                return airline.id === airlineId;
+                return airline.id === parseInt(airlineId);
             })
+
+            console.log(airlineFounded)
 
             if(!airlineFounded){
                 return {
